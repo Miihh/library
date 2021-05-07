@@ -8,9 +8,7 @@ var description = document.getElementById("description");
 function addBook() {
     if (title.value.length > 0 && author.value.length > 0 && description.value.length > 0) {
     alert("thanks for submiting");
-    } else {
-    alert("insert info mdfk");
-    }
+    } 
 }
 
 
