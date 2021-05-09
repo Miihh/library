@@ -5,7 +5,8 @@
         <link href="https://fonts.googleapis.com/css2?family=Goudy+Bookletter+1911&display=swap" rel="stylesheet">
         <title>Virtual Library</title>
         <link rel="stylesheet" type="text/css" href="style.css">
-
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        
     </head>
     <body>
         <form id="register">
@@ -16,12 +17,13 @@
             </div>
 
             <div id="container">
-                <input id="title" type="text" placeholder="Title" required>
-                <input id="author" type="text" placeholder="Author" required>
-                <input id="description" type="text" placeholder="Short description" required><br>
-                <button id="button" type="submit">Submit</button>     
+                <input id="title" type="text" placeholder="Title">
+                <input id="author" type="text" placeholder="Author">
+                <input id="description" type="text" placeholder="Short description"><br>
+                <button id="button" type="button">Submit</button>    
             </div>    
-        </form>
+        </form><br>
+            <div id="output"></div>
         <script type="text/javascript" src="script.js"></script>
     </body>
 </html>
