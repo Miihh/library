@@ -14,4 +14,10 @@
     font-family: 'Goudy Bookletter 1911', serif;
 }
 
+.table {
+    border: solid 2px black;
+}
 
+tr, th {
+    text-align: center;
+}

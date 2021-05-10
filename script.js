@@ -12,24 +12,23 @@ var showBook = document.querySelector('.table');
 
 // check user input value & create template literal with user input info displayed
 function createBookEntry() {
+    // check for input length
     if (title.value.length > 0 
         && author.value.length > 0 
         && description.value.length > 0){
-    
+    // create template literal
         var bookTemplate = 
         `<tr>
         <td>${title.value}</td>
         <td>${author.value}</td>
         <td>${description.value}</td>
         </tr>`;
+        // display info from user input
         showBook.innerHTML += bookTemplate;
-        
+        // reset input value after submiting them
         title.value = ""; 
-           author.value = "";
-           description.value = "";
-        } else {
-            alert("please insert info");
-        }
+        author.value = "";
+        description.value = "";} 
     
 }
 
