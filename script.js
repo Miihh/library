@@ -35,12 +35,10 @@ function addBook() {
 }
 
 
-
-
 function showInfo() {
-    showBook.innerHTML = "";
-    showBook.innerHTML += "Title:" + titleValue +  ";" + "<br>";
+    alert("your book has been saved");
 }
+
 
 
 button.addEventListener('click', addBook);
