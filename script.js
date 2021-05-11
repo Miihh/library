@@ -31,7 +31,6 @@ function createBookEntry() {
     // create template literal
         var bookTemplate = 
         `<tr>
-            
             <td>${title.value}</td>
             <td>${author.value}</td>
             <td>${description.value}</td>
@@ -42,7 +41,7 @@ function createBookEntry() {
          </tr>`;
          
          storeInfo();
-         retrieveFromStorage();
+        //  retrieveFromStorage();
         // display info from user input
         showBook.innerHTML += bookTemplate;
         // reset input value after submiting them
