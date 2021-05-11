@@ -5,8 +5,12 @@ var author = document.getElementById("author");
 var description = document.getElementById("description");
 var showBook = document.querySelector('.table');
 
-
-
+function delButton() {
+var button = document.createElement("button");
+    button.innerHTML = "Do Something";
+    var td = document. getElementsByTagName("td")[0];
+    td.appendChild(button);
+}
 
 
 
@@ -19,10 +23,17 @@ function createBookEntry() {
     // create template literal
         var bookTemplate = 
         `<tr>
-        <td>${title.value}</td>
-        <td>${author.value}</td>
-        <td>${description.value}</td>
-        </tr>`;
+            
+            <td>${title.value}</td>
+            <td>${author.value}</td>
+            <td>${description.value}</td>
+            <td>
+            <button type="button" class="btn btn-info">Edit</button>
+            <button type="button" class="btn btn-danger">X</button>
+            </td>
+         </tr>`;
+         
+         
         // display info from user input
         showBook.innerHTML += bookTemplate;
         // reset input value after submiting them
