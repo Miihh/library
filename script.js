@@ -9,9 +9,15 @@ var showBook = document.querySelector('.table');
 
 
 function storeInfo() {
-
+    // get stored title value
     var storedTitleValue = title.value;
     localStorage.setItem("titlu", storedTitleValue);
+    // get stored author value
+    var storedAuthorValue = author.value;
+    localStorage.setItem("autor", storedAuthorValue);
+    // get stored description value
+    var storedDescriptionValue = description.value;
+    localStorage.setItem("descriere", storedDescriptionValue);
 
 }
 
@@ -55,11 +61,11 @@ button.addEventListener('click', createBookEntry);
 
 
 
-
-function retrieveFromStorage(){
-    // Retrieve textbox previous value
-    var prevValue= localStorage.getItem("titlu");
-        console.log(prevValue);
+//  not displaying in right possition. need to think it better
+// function retrieveFromStorage(){
+//     // Retrieve textbox previous value
+//     var prevValue= localStorage.getItem("titlu");
+//         document.getElementById("table-row").innerHTML = prevValue;
     
- }
+//  }
 
