@@ -21,6 +21,16 @@ function storeInfo() {
 
 }
 
+// like/dislike button function
+function myFunction(x) {
+    x.classList.toggle("fa-thumbs-down");
+  }
+
+// delete row function
+  function deleteRow() {
+    table-body.deleteRow(0);
+}
+
 // check user input value & create template literal with user input info displayed
 function createBookEntry() {
     
@@ -35,13 +45,15 @@ function createBookEntry() {
             <td>${author.value}</td>
             <td>${description.value}</td>
             <td>
-            <button type="button" class="btn btn-info">Edit</button>
+            <button type="button" onclick=deleteRow()" class="btn btn-info">Edit</button>
             <button type="button" class="btn btn-danger">X</button>
             </td>
+            <td><i onclick="myFunction(this)" class="fa fa-thumbs-up"></i></td>
          </tr>`;
          
          storeInfo();
         //  retrieveFromStorage();
+
         // display info from user input
         showBook.innerHTML += bookTemplate;
         // reset input value after submiting them
@@ -55,6 +67,10 @@ function createBookEntry() {
 
 
 button.addEventListener('click', createBookEntry);
+
+
+
+
 
 
 
