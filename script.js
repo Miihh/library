@@ -5,17 +5,19 @@ var author = document.getElementById("author");
 var description = document.getElementById("description");
 var showBook = document.querySelector('.table');
 
-function delButton() {
-var button = document.createElement("button");
-    button.innerHTML = "Do Something";
-    var td = document. getElementsByTagName("td")[0];
-    td.appendChild(button);
+
+
+
+function storeInfo() {
+
+    var storedTitleValue = title.value;
+    localStorage.setItem("titlu", storedTitleValue);
+
 }
-
-
 
 // check user input value & create template literal with user input info displayed
 function createBookEntry() {
+    
     // check for input length
     if (title.value.length > 0 
         && author.value.length > 0 
@@ -33,16 +35,16 @@ function createBookEntry() {
             </td>
          </tr>`;
          
-         
+         storeInfo();
+         retrieveFromStorage();
         // display info from user input
         showBook.innerHTML += bookTemplate;
         // reset input value after submiting them
         title.value = ""; 
         author.value = "";
         description.value = "";} 
-    
+        
 }
-
 
 
 
@@ -51,4 +53,13 @@ button.addEventListener('click', createBookEntry);
 
 
 
+
+
+
+function retrieveFromStorage(){
+    // Retrieve textbox previous value
+    var prevValue= localStorage.getItem("titlu");
+        console.log(prevValue);
+    
+ }
 
