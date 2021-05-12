@@ -38,43 +38,25 @@ function addTableRow() {
     // create delete/edit buttons
     var deleteButton = document.createElement("button")
     deleteButton.setAttribute("id","delBtn")
-<<<<<<< HEAD
     deleteButton.className = "btn btn-danger btn-sm"
-=======
-    deleteButton.className = "btn btn-danger"
->>>>>>> 65dabd946fb4588a038da6dbe725db4b51837f0e
     deleteButton.textContent = "Delete"
     addButtonsCell.appendChild(deleteButton);
     deleteButton.addEventListener('click', deleteRow);
 
     var editButton = document.createElement("button")
     editButton.setAttribute("id","editBtn")
-<<<<<<< HEAD
     editButton.className = "btn btn-info btn-sm"
     editButton.textContent = "Edit"
     addButtonsCell.appendChild(editButton);
    
-=======
-    editButton.className = "btn btn-info"
-    editButton.textContent = "Edit"
-    addButtonsCell.appendChild(editButton);
-    editButton.addEventListener('click', testAlert);
->>>>>>> 65dabd946fb4588a038da6dbe725db4b51837f0e
 
     // create like button
     var editButton = document.createElement("button")
     editButton.setAttribute("id","like")
-<<<<<<< HEAD
     editButton.className = "btn btn-info btn-primary active $().button('toggle')"
     editButton.textContent = "Like"
     addRatingCell.appendChild(editButton);
     
-=======
-    editButton.className = "btn btn-info btn-primary toggle active "
-    editButton.textContent = "Like"
-    addRatingCell.appendChild(editButton);
-    editButton.addEventListener('click', testAlert);
->>>>>>> 65dabd946fb4588a038da6dbe725db4b51837f0e
 }
 
 
@@ -116,21 +98,10 @@ function createBookEntry() {
 }
 
 // delete row function
-<<<<<<< HEAD
 
   function deleteRow(e) {
     var td = e.target.parentNode; 
     var tr = td.parentNode; 
-=======
-function deleteRow() {
-    document.getElementById("table").deleteRow(1);
-  }
-
-  function deleteRow() {
-    // event.target will be the input element.
-    var td = event.target.parentNode; 
-    var tr = td.parentNode; // the row to be removed
->>>>>>> 65dabd946fb4588a038da6dbe725db4b51837f0e
     tr.parentNode.removeChild(tr);
 }
 
