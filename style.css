@@ -29,7 +29,12 @@ input {
 
 #delBtn {
     border-radius: 5px;
+<<<<<<< HEAD
     margin-right: 5px;
+=======
+    margin-right: 10px;
+
+>>>>>>> 65dabd946fb4588a038da6dbe725db4b51837f0e
 }
 
 #editBtn {
