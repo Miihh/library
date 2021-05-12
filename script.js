@@ -33,15 +33,27 @@ function addTableRow() {
 
 
     // create delete/edit buttons
-    var butonSters = document.createElement("button")
-    butonSters.setAttribute("id","delBtn")
-    butonSters.className = "btn btn-danger"
-    butonSters.textContent = "Delete"
-    addButtonsCell.appendChild(butonSters);
-    butonSters.addEventListener('click', testAlert);
+    var deleteButton = document.createElement("button")
+    deleteButton.setAttribute("id","delBtn")
+    deleteButton.className = "btn btn-danger"
+    deleteButton.textContent = "Delete"
+    addButtonsCell.appendChild(deleteButton);
+    deleteButton.addEventListener('click', deleteRow);
 
-    // de adaugat like dislike neutru in rating cell
+    var editButton = document.createElement("button")
+    editButton.setAttribute("id","editBtn")
+    editButton.className = "btn btn-info"
+    editButton.textContent = "Edit"
+    addButtonsCell.appendChild(editButton);
+    editButton.addEventListener('click', testAlert);
 
+    // create like button
+    var editButton = document.createElement("button")
+    editButton.setAttribute("id","like")
+    editButton.className = "btn btn-info btn-primary toggle active "
+    editButton.textContent = "Like"
+    addRatingCell.appendChild(editButton);
+    editButton.addEventListener('click', testAlert);
 }
 
 
@@ -82,8 +94,20 @@ function createBookEntry() {
         
 }
 
-var delBtn = document.getElementById("delBtn");
+// delete row function
+function deleteRow() {
+    document.getElementById("table").deleteRow(1);
+  }
 
+  function deleteRow() {
+    // event.target will be the input element.
+    var td = event.target.parentNode; 
+    var tr = td.parentNode; // the row to be removed
+    tr.parentNode.removeChild(tr);
+}
+
+
+// test function for delete button
 function testAlert() {
     
     alert("working <3");
