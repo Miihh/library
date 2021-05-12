@@ -28,20 +28,35 @@ function addTableRow() {
     var addRatingCell = addRow.insertCell(4);
     
     addTitleCell.innerHTML = titlu;
+    addTitleCell.contentEditable = true;
     addAuthorCell.innerHTML = autor;
+    addAuthorCell.contentEditable = true;
     addDescriptionCell.innerHTML = descriere;
+    addDescriptionCell.contentEditable = true;
 
 
     // create delete/edit buttons
-    var butonSters = document.createElement("button")
-    butonSters.setAttribute("id","delBtn")
-    butonSters.className = "btn btn-danger"
-    butonSters.textContent = "Delete"
-    addButtonsCell.appendChild(butonSters);
-    butonSters.addEventListener('click', testAlert);
+    var deleteButton = document.createElement("button")
+    deleteButton.setAttribute("id","delBtn")
+    deleteButton.className = "btn btn-danger btn-sm"
+    deleteButton.textContent = "Delete"
+    addButtonsCell.appendChild(deleteButton);
+    deleteButton.addEventListener('click', deleteRow);
 
-    // de adaugat like dislike neutru in rating cell
+    var editButton = document.createElement("button")
+    editButton.setAttribute("id","editBtn")
+    editButton.className = "btn btn-info btn-sm"
+    editButton.textContent = "Edit"
+    addButtonsCell.appendChild(editButton);
+   
 
+    // create like button
+    var editButton = document.createElement("button")
+    editButton.setAttribute("id","like")
+    editButton.className = "btn btn-info btn-primary active $().button('toggle')"
+    editButton.textContent = "Like"
+    addRatingCell.appendChild(editButton);
+    
 }
 
 
@@ -82,8 +97,16 @@ function createBookEntry() {
         
 }
 
-var delBtn = document.getElementById("delBtn");
+// delete row function
 
+  function deleteRow(e) {
+    var td = e.target.parentNode; 
+    var tr = td.parentNode; 
+    tr.parentNode.removeChild(tr);
+}
+
+
+// test function for delete button
 function testAlert() {
     
     alert("working <3");
