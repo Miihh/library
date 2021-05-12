@@ -3,11 +3,37 @@ var button = document.getElementById("button");
 var title = document.getElementById("title");
 var author = document.getElementById("author");
 var description = document.getElementById("description");
-var showBook = document.querySelector('.table');
 
 
 
 
+
+
+// add table row function
+function addTableRow() {
+    
+    var titlu = document.getElementById("title").value;
+    var autor = document.getElementById("author").value;
+    var descriere = document.getElementById("description").value;
+    var tableBody = document.getElementById("table");
+    
+    
+    var addRow = tableBody.insertRow(1);
+    
+    var addTitleCell = addRow.insertCell(0);
+    var addAuthorCell = addRow.insertCell(1);
+    var addDescriptionCell = addRow.insertCell(2);
+    var addButtonsCell = addRow.insertCell(3);
+    var addRatingCell = addRow.insertCell(4);
+    
+    addTitleCell.innerHTML = titlu;
+    addAuthorCell.innerHTML = autor;
+    addDescriptionCell.innerHTML = descriere;
+    
+}
+
+
+// store user input info in local storage and run the table row function
 function storeInfo() {
     // get stored title value
     var storedTitleValue = title.value;
@@ -19,40 +45,22 @@ function storeInfo() {
     var storedDescriptionValue = description.value;
     localStorage.setItem("descriere", storedDescriptionValue);
 
+    addTableRow();
+
+    
 }
 
-// like/dislike button function
-function myFunction(x) {
-    x.classList.toggle("fa-thumbs-down");
-  }
 
-// delete row function
-  function deleteRow() {
-    table-body.deleteRow(0);
-}
 
-// check user input value & create template literal with user input info displayed
+// CREATE BOOK ENTRY FUNCTION
 function createBookEntry() {
     
     // check for input length
     if (title.value.length > 0 
         && author.value.length > 0 
         && description.value.length > 0){
-    // create template literal
-        var bookTemplate = 
-        `<tr>
-            <td>${title.value}</td>
-            <td>${author.value}</td>
-            <td>${description.value}</td>
-            <td>
-            <button type="button" onclick=deleteRow()" class="btn btn-info">Edit</button>
-            <button type="button" class="btn btn-danger">X</button>
-            </td>
-            <td><i onclick="myFunction(this)" class="fa fa-thumbs-up"></i></td>
-         </tr>`;
-         
-         storeInfo();
-        //  retrieveFromStorage();
+    
+        storeInfo();
 
         // display info from user input
         showBook.innerHTML += bookTemplate;
@@ -64,23 +72,45 @@ function createBookEntry() {
 }
 
 
-
-
 button.addEventListener('click', createBookEntry);
 
 
 
+// like/dislike button function
+function likeDislike(x) {
+    x.classList.toggle("fa-thumbs-down");
+  }
 
 
 
 
 
 
-//  not displaying in right possition. need to think it better
-// function retrieveFromStorage(){
-//     // Retrieve textbox previous value
-//     var prevValue= localStorage.getItem("titlu");
-//         document.getElementById("table-row").innerHTML = prevValue;
-    
-//  }
+
+
+
+
+
+dit_button.addEventListener("click", function() {
+    paragraph.contentEditable = true;
+    paragraph.style.backgroundColor = "#dddbdb";
+  } );
+
+
+
+
+
+//   var bookTemplate = 
+//   `<tr>
+//       <td>${title.value}</td>
+//       <td>${author.value}</td>
+//       <td>${description.value}</td>
+//       <td>
+//       <button type="button" onclick="deleteRow(this)" class="btn btn-info">Edit</button>
+//       <button type="button" class="btn btn-danger">X</button>
+//       </td>
+//       <td><i onclick="likeDislike(this)" class="fa fa-thumbs-up"></i></td>
+//    </tr>`;
+
+
 
