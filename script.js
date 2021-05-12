@@ -3,6 +3,7 @@ var button = document.getElementById("button");
 var title = document.getElementById("title");
 var author = document.getElementById("author");
 var description = document.getElementById("description");
+var delBtn = document.getElementById("delBtn");
 
 
 
@@ -29,7 +30,18 @@ function addTableRow() {
     addTitleCell.innerHTML = titlu;
     addAuthorCell.innerHTML = autor;
     addDescriptionCell.innerHTML = descriere;
-    
+
+
+    // create delete/edit buttons
+    var butonSters = document.createElement("button")
+    butonSters.setAttribute("id","delBtn")
+    butonSters.className = "btn btn-danger"
+    butonSters.textContent = "Delete"
+    addButtonsCell.appendChild(butonSters);
+    butonSters.addEventListener('click', testAlert);
+
+    // de adaugat like dislike neutru in rating cell
+
 }
 
 
@@ -52,7 +64,7 @@ function storeInfo() {
 
 
 
-// CREATE BOOK ENTRY FUNCTION
+// CREATE BOOK ENTRY FUNCTION - check if the user has entered info and display it
 function createBookEntry() {
     
     // check for input length
@@ -62,8 +74,7 @@ function createBookEntry() {
     
         storeInfo();
 
-        // display info from user input
-        showBook.innerHTML += bookTemplate;
+
         // reset input value after submiting them
         title.value = ""; 
         author.value = "";
@@ -71,15 +82,17 @@ function createBookEntry() {
         
 }
 
+var delBtn = document.getElementById("delBtn");
+
+function testAlert() {
+    
+    alert("working <3");
+}
 
 button.addEventListener('click', createBookEntry);
 
 
 
-// like/dislike button function
-function likeDislike(x) {
-    x.classList.toggle("fa-thumbs-down");
-  }
 
 
 
@@ -91,26 +104,6 @@ function likeDislike(x) {
 
 
 
-dit_button.addEventListener("click", function() {
-    paragraph.contentEditable = true;
-    paragraph.style.backgroundColor = "#dddbdb";
-  } );
-
-
-
-
-
-//   var bookTemplate = 
-//   `<tr>
-//       <td>${title.value}</td>
-//       <td>${author.value}</td>
-//       <td>${description.value}</td>
-//       <td>
-//       <button type="button" onclick="deleteRow(this)" class="btn btn-info">Edit</button>
-//       <button type="button" class="btn btn-danger">X</button>
-//       </td>
-//       <td><i onclick="likeDislike(this)" class="fa fa-thumbs-up"></i></td>
-//    </tr>`;
 
 
 

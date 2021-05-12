@@ -24,4 +24,14 @@ tr, th {
 
 input {
     width: 60%;
+    border-radius: 5px;
+}
+
+#delBtn {
+    border-radius: 5px;
+    
+}
+
+#editBtn {
+    border-radius: 5px;
 }
