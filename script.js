@@ -5,6 +5,7 @@ var author = document.getElementById("author");
 var description = document.getElementById("description");
 var delBtn = document.getElementById("delBtn");
 var table = document.getElementById("table").getElementsByTagName('tbody')[0];
+var search = document.getElementById("myInput");
 
 
 // add table row function
@@ -22,27 +23,29 @@ function addTableRow() {
     var addAuthorCell = addRow.insertCell(1);
     var addDescriptionCell = addRow.insertCell(2);
     var addButtonsCell = addRow.insertCell(3);
-    var addLikeDislikeCell = addRow.insertCell(4);
+    var addRateCell = addRow.insertCell(4);
     var addStarsCell = addRow.insertCell(5);
     
 
     // appendChild version
     var titleText = document.createTextNode(titlu);
     addTitleCell.appendChild(titleText);
+    addTitleCell.contentEditable = true;
    
     var authorText = document.createTextNode(autor);
     addAuthorCell.appendChild(authorText);
+    addAuthorCell.contentEditable = true;
 
     var descriptionText = document.createTextNode(descriere);
     addDescriptionCell.appendChild(descriptionText);
+    addDescriptionCell.contentEditable = true;
 
     //  works with innerHtml too. your choice.
-    //  addTitleCell.innerHTML = titlu;
-    
-    //  addAuthorCell.innerHTML = autor;
-     
+    //  addTitleCell.innerHTML = titlu;   
+    //  addAuthorCell.innerHTML = autor; 
     //  addDescriptionCell.innerHTML = descriere;
      
+    //  use contentEditable=true to enable editing without the need for a button.
  
     
 
@@ -54,25 +57,22 @@ function addTableRow() {
     addButtonsCell.appendChild(deleteButton);
     deleteButton.addEventListener('click', deleteRow);
 
-    // create edit button
-    var editButton = document.createElement("button")
-    editButton.setAttribute("id","editBtn")
-    editButton.className = "btn btn-info btn-sm"
-    editButton.textContent = "Edit"
-    addButtonsCell.appendChild(editButton);
+    // create edit button - couldn't make it work with that function.
+    // var editButton = document.createElement("button")
+    // editButton.setAttribute("id","editBtn")
+    // editButton.className = "btn btn-info btn-sm"
+    // editButton.textContent = "Edit"
+    // addButtonsCell.appendChild(editButton);
     
     
    
 
-    
+    //Create  like/dislike list
+    var rate = ["Like","Neutral","Dislike"];
 
-    //Create array of options to be added
-    var rate = ["Like","Dislike","Neutral"];
-
-//Create and append select list
     var selectList = document.createElement("select");
     selectList.id = "mySelect";
-    addLikeDislikeCell.appendChild(selectList);
+    addRateCell.appendChild(selectList);
 
     for (var i = 0; i < rate.length; i++) {
         var option = document.createElement("option");
@@ -81,12 +81,7 @@ function addTableRow() {
         selectList.appendChild(option);
     }
 
-
-
-
-
 }
-
 
 
     

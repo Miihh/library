@@ -1,3 +1,6 @@
+
+
+
 #container {
     text-align: center;
     width: 33%;
@@ -37,6 +40,19 @@ input {
 }
 
 
+#tabhead {
+    border: solid 3px black;
+}
 
+#tabbody {
+    border: solid 3px black;
+}
 
+body {
+    background-color: blanchedalmond;
+}
 
+#button {
+    border-radius: 5px;
+    background-color: blanchedalmond;
+}
