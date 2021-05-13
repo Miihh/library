@@ -22,7 +22,8 @@ function addTableRow() {
     var addAuthorCell = addRow.insertCell(1);
     var addDescriptionCell = addRow.insertCell(2);
     var addButtonsCell = addRow.insertCell(3);
-    var addRatingCell = addRow.insertCell(4);
+    var addLikeDislikeCell = addRow.insertCell(4);
+    var addStarsCell = addRow.insertCell(5);
     
 
     // appendChild version
@@ -45,9 +46,6 @@ function addTableRow() {
  
     
 
-
-    
-
     // create delete button
     var deleteButton = document.createElement("button")
     deleteButton.setAttribute("id","delBtn")
@@ -58,24 +56,35 @@ function addTableRow() {
 
     // create edit button
     var editButton = document.createElement("button")
-    editButton.setAttribute("id","delBtn")
+    editButton.setAttribute("id","editBtn")
     editButton.className = "btn btn-info btn-sm"
     editButton.textContent = "Edit"
     addButtonsCell.appendChild(editButton);
-    editButton.addEventListener('click', deleteRow);
+    
     
    
 
-    // create like button
-    var like = document.createElement("button")
-    like.setAttribute("id","like")
-    like.className = "btn fa fa-thumbs-o-up"
-    addRatingCell.appendChild(like);
-    // create dislike button
-    var dislike = document.createElement("button")
-    dislike.setAttribute("id","dislike")
-    dislike.className = "btn fa fa-thumbs-o-down"
-    addRatingCell.appendChild(dislike);
+    
+
+    //Create array of options to be added
+    var rate = ["Like","Dislike","Neutral"];
+
+//Create and append select list
+    var selectList = document.createElement("select");
+    selectList.id = "mySelect";
+    addLikeDislikeCell.appendChild(selectList);
+
+    for (var i = 0; i < rate.length; i++) {
+        var option = document.createElement("option");
+        option.value = rate[i];
+        option.text = rate[i];
+        selectList.appendChild(option);
+    }
+
+
+
+
+
 }
 
 
@@ -129,11 +138,14 @@ function createBookEntry() {
 }
 
 
-// test function for delete button
-function testAlert() {
-    
-    alert("working <3");
-}
+// // edit row function not working ???
+// function editRow(table) {
+//     if(table.isContentEditable=false)
+//          {
+//             table.setAttribute("contentEditable", true);
+//         }
+        
+// }
 
 button.addEventListener('click', createBookEntry);
 
@@ -143,14 +155,6 @@ button.addEventListener('click', createBookEntry);
 
 
 
-function editRow() {
-
-    if(addTitleCell.length > 0, contentEditable = false)
-    {   event.preventDefault();
-        addTitleCell.contentEditable= true;
-    }				
-    
-};
 
 
 
