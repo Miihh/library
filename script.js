@@ -4,10 +4,7 @@ var title = document.getElementById("title");
 var author = document.getElementById("author");
 var description = document.getElementById("description");
 var delBtn = document.getElementById("delBtn");
-
-
-
-
+var table = document.getElementById("table").getElementsByTagName('tbody')[0];
 
 
 // add table row function
@@ -16,10 +13,10 @@ function addTableRow() {
     var titlu = document.getElementById("title").value;
     var autor = document.getElementById("author").value;
     var descriere = document.getElementById("description").value;
-    var tableBody = document.getElementById("table");
+    var tBody = document.getElementById("table");
     
     
-    var addRow = tableBody.insertRow(1);
+    var addRow = tBody.insertRow(1);
     
     var addTitleCell = addRow.insertCell(0);
     var addAuthorCell = addRow.insertCell(1);
@@ -27,15 +24,31 @@ function addTableRow() {
     var addButtonsCell = addRow.insertCell(3);
     var addRatingCell = addRow.insertCell(4);
     
-    addTitleCell.innerHTML = titlu;
-    addTitleCell.contentEditable = true;
-    addAuthorCell.innerHTML = autor;
-    addAuthorCell.contentEditable = true;
-    addDescriptionCell.innerHTML = descriere;
-    addDescriptionCell.contentEditable = true;
+
+    // appendChild version
+    var titleText = document.createTextNode(titlu);
+    addTitleCell.appendChild(titleText);
+   
+    var authorText = document.createTextNode(autor);
+    addAuthorCell.appendChild(authorText);
+
+    var descriptionText = document.createTextNode(descriere);
+    addDescriptionCell.appendChild(descriptionText);
+
+    //  works with innerHtml too. your choice.
+    //  addTitleCell.innerHTML = titlu;
+    
+    //  addAuthorCell.innerHTML = autor;
+     
+    //  addDescriptionCell.innerHTML = descriere;
+     
+ 
+    
 
 
-    // create delete/edit buttons
+    
+
+    // create delete button
     var deleteButton = document.createElement("button")
     deleteButton.setAttribute("id","delBtn")
     deleteButton.className = "btn btn-danger btn-sm"
@@ -43,21 +56,31 @@ function addTableRow() {
     addButtonsCell.appendChild(deleteButton);
     deleteButton.addEventListener('click', deleteRow);
 
+    // create edit button
     var editButton = document.createElement("button")
-    editButton.setAttribute("id","editBtn")
+    editButton.setAttribute("id","delBtn")
     editButton.className = "btn btn-info btn-sm"
     editButton.textContent = "Edit"
     addButtonsCell.appendChild(editButton);
+    editButton.addEventListener('click', deleteRow);
+    
    
 
     // create like button
-    var editButton = document.createElement("button")
-    editButton.setAttribute("id","like")
-    editButton.className = "btn btn-info btn-primary active $().button('toggle')"
-    editButton.textContent = "Like"
-    addRatingCell.appendChild(editButton);
-    
+    var like = document.createElement("button")
+    like.setAttribute("id","like")
+    like.className = "btn fa fa-thumbs-o-up"
+    addRatingCell.appendChild(like);
+    // create dislike button
+    var dislike = document.createElement("button")
+    dislike.setAttribute("id","dislike")
+    dislike.className = "btn fa fa-thumbs-o-down"
+    addRatingCell.appendChild(dislike);
 }
+
+
+
+    
 
 
 // store user input info in local storage and run the table row function
@@ -120,8 +143,14 @@ button.addEventListener('click', createBookEntry);
 
 
 
+function editRow() {
 
-
+    if(addTitleCell.length > 0, contentEditable = false)
+    {   event.preventDefault();
+        addTitleCell.contentEditable= true;
+    }				
+    
+};
 
 
 
